@@ -23,7 +23,7 @@
     "moment": "^2.19.4",
     "vue": "^2.5.9",
     "vue-preview": "^1.0.5",
-    "vue-route": "^1.5.1"
+    "vue-router": "^2.7.0"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
