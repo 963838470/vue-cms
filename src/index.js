@@ -8,10 +8,13 @@ import './static/vendor/mui/dist/css/mui.css'
 
 import App from './app.vue';
 import Home from './components/home.vue';
+require('./static/css/global.css')
 
 Vue.use(VueRouter);
 Vue.use(Mint);
 Vue.prototype.$ajax = Axios;
+
+Axios.defaults.baseURL = 'http://182.254.146.100:8899/api';
 
 let router = new VueRouter({
     routes: [
