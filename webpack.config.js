@@ -14,10 +14,10 @@ module.exports = {
         loaders: [
             { test: /\.css$/, loader: 'style-loader!css-loader!autoprefixer-loader' },
             { test: /\.less$/, loader: 'style-loader!css-loader!autoprefixer-loader!less-loader' },
-            { test: /\.(jpg|png|svg|gif|ttf|woff|woff2)/, loader: 'url-loader', options: { limit: 4096, name: '[name].[ext]' } },
+            { test: /\.(jpg|png|svg|gif|ttf|woff|woff2)/, loader: 'url-loader', options: { limit: 4096, name: '[hash:8].[name].[ext]' } },
             { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader', options: { presets: ['es2015'], plugins: ['transform-runtime'] } },
             { test: /\.vue$/, loader: 'vue-loader' },
-            { test: /\.eot$/, loader: 'file-loader' },
+            { test: /\.(eot)$/, loader: 'file-loader', options: { limit: 4096, name: '[name].[ext]' } },
         ]
     },
     plugins: [
