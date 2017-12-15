@@ -7,7 +7,7 @@ import Axios from 'axios';
 import './static/vendor/mui/dist/css/mui.css'
 
 import App from './app.vue';
-import Home from './components/home.vue';
+import Home from './home.vue';
 require('./static/css/global.css')
 
 Vue.use(VueRouter);
