@@ -7,7 +7,10 @@ import Axios from 'axios';
 import './static/vendor/mui/dist/css/mui.css'
 
 import App from './app.vue';
-import Home from './home.vue';
+import Home from './components/home/home.vue';
+import Member from './components/member/member.vue';
+import Search from './components/search/search.vue';
+import Shopcart from './components/shopcart/shopcart.vue';
 require('./static/css/global.css')
 
 Vue.use(VueRouter);
@@ -20,9 +23,13 @@ let router = new VueRouter({
     routes: [
         { path: '/', redirect: { name: 'home' } },
         { name: 'home', path: '/home', component: Home },
+        { name: 'member', path: '/member', component: Member },
+        { name: 'search', path: '/search', component: Search },
+        { name: 'shopcart', path: '/shopcart', component: Shopcart },
 
 
-    ]
+    ],
+    linkActiveClass: "mui-active"
 })
 
 new Vue({
