@@ -4,7 +4,7 @@
         <div class="photo-header">
             <ul>
                 <li v-for="m in menus" :key="m.id">
-                    <router-link to="#">{{ m.name }}</router-link>
+                    <a to="#" @click="loadImg(m.id)">{{ m.name }}</a>
                 </li>
             </ul>
         </div>
@@ -32,6 +32,11 @@ export default {
       menus: [],
       image: []
     };
+  },
+  methods: {
+    loadImg(id) {
+      console.log(id);
+    }
   },
   created() {
     this.menus = [
