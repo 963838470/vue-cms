@@ -8,7 +8,7 @@
                         {{ m.title }}
                         <div class="news-desc">
                             <p class='mui-ellipsis'>点击数：{{ m.click }}</p>
-                            <p class='mui-ellipsis'>发表时间：{{ m.addtime }}</p>
+                            <p class='mui-ellipsis'>发表时间：{{ m.addtime | filterDate }}</p>
                         </div>
                     </div>
                 </a>
@@ -24,7 +24,7 @@ export default {
       List: [
         {
           title: "幸福",
-          addtime: "2017-12-12",
+          addtime: "2017-12-12 12:34:12",
           click: 121,
           imgSrc: "../../img/1.jpg",
           descript: "能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？"

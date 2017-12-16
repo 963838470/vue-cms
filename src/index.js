@@ -5,6 +5,7 @@ import Mint from 'mint-ui';
 import 'mint-ui/lib/style.css';
 import Axios from 'axios';
 import './static/vendor/mui/dist/css/mui.css'
+import Moment from 'moment'
 
 import App from './app.vue';
 import Home from './components/home/home.vue';
@@ -32,6 +33,10 @@ let router = new VueRouter({
 
     ],
     linkActiveClass: "mui-active"
+})
+
+Vue.filter("filterDate", function (value) {
+    return Moment(value).format('YYYY-MM-DD');k
 })
 
 new Vue({
