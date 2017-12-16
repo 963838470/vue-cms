@@ -11,6 +11,7 @@ import Home from './components/home/home.vue';
 import Member from './components/member/member.vue';
 import Search from './components/search/search.vue';
 import Shopcart from './components/shopcart/shopcart.vue';
+import NewsList from './components/news/list.vue';
 require('./static/css/global.css')
 
 Vue.use(VueRouter);
@@ -26,6 +27,7 @@ let router = new VueRouter({
         { name: 'member', path: '/member', component: Member },
         { name: 'search', path: '/search', component: Search },
         { name: 'shopcart', path: '/shopcart', component: Shopcart },
+        { name: 'news.list', path: '/news/list', component: NewsList },
 
 
     ],
