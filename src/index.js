@@ -13,6 +13,7 @@ import Member from './components/member/member.vue';
 import Search from './components/search/search.vue';
 import Shopcart from './components/shopcart/shopcart.vue';
 import NewsList from './components/news/list.vue';
+import NewsDetail from './components/news/detail.vue';
 import NavBar from './components/common/navBar.vue';
 require('./static/css/global.css')
 
@@ -30,6 +31,7 @@ let router = new VueRouter({
         { name: 'search', path: '/search', component: Search },
         { name: 'shopcart', path: '/shopcart', component: Shopcart },
         { name: 'news.list', path: '/news/list', component: NewsList },
+        { name: 'news.detail', path: '/news/detail/:id', component: NewsDetail },
 
 
     ],
