@@ -1,5 +1,6 @@
 <template>
     <div class="tmpl">
+        <nav-bar title="123"></nav-bar>
         <ul class="mui-table-view">
             <li class="mui-table-view-cell mui-media" v-for="(m,i) in List" :key="i">
                 <a href="javascript:;">

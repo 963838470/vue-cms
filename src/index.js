@@ -13,6 +13,7 @@ import Member from './components/member/member.vue';
 import Search from './components/search/search.vue';
 import Shopcart from './components/shopcart/shopcart.vue';
 import NewsList from './components/news/list.vue';
+import NavBar from './components/common/navBar.vue';
 require('./static/css/global.css')
 
 Vue.use(VueRouter);
@@ -36,8 +37,10 @@ let router = new VueRouter({
 })
 
 Vue.filter("filterDate", function (value) {
-    return Moment(value).format('YYYY-MM-DD');k
+    return Moment(value).format('YYYY-MM-DD'); k
 })
+
+Vue.component("nav-bar", NavBar)
 
 new Vue({
     el: "#app",
