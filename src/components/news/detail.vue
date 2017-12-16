@@ -50,6 +50,6 @@ export default {
 }
 
 .news-content {
-  padding: 10 5;
+  padding: 10px 5px;
 }
 </style>
