@@ -72,7 +72,11 @@ export default {
       ]
     };
   },
-  created() {}
+  created() {
+    this.$ajax.get("http://localhost:8080/#/photo/share", function(data) {
+      console.log(data);
+    });
+  }
 };
 </script>
 

@@ -54,21 +54,9 @@ export default {
 </script>
 
 <style scoped>
-li {
-  list-style: none;
-  margin: 5px 0;
-}
 
-.comment-list li {
-  border-bottom: 1px solid lightgray;
 
-  padding: 5px;
-}
 
-ul {
-  margin: 0;
-  padding: 0;
-}
 
 .photo-title span {
   margin-right: 20px;

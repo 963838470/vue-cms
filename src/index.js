@@ -27,6 +27,18 @@ Vue.use(VuePreview)
 Vue.prototype.$ajax = Axios;
 
 Axios.defaults.baseURL = 'http://182.254.146.100:8899/api';
+Axios.interceptors.request.use(function (config) {
+    Mint.Indicator.open({
+        text: '加载中...',
+        spinnerType: 'fading-circle'
+    });
+    config.headers['X-Requested-With'] = 'XMLHttpRequest'
+    return config;
+})
+Axios.interceptors.response.use(function (config) {
+    Mint.Indicator.close();
+    return config;
+})
 
 let router = new VueRouter({
     routes: [
