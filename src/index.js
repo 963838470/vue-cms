@@ -19,6 +19,7 @@ import NavBar from './components/common/navBar.vue';
 import Comment from './components/common/comment.vue';
 import PhotoShare from './components/photo/share.vue';
 import PhotoDetail from './components/photo/detail.vue';
+import GoodsList from './components/goods/list.vue';
 require('./static/css/global.css')
 
 Vue.use(VueRouter);
@@ -51,6 +52,7 @@ let router = new VueRouter({
         { name: 'news.detail', path: '/news/detail/:id', component: NewsDetail },
         { name: 'photo.share', path: '/photo/share', component: PhotoShare },
         { name: 'photo.detail', path: '/photo/detail/:id', component: PhotoDetail },
+        { name: 'goods.list', path: '/photo/goods/list', component: GoodsList },
 
 
     ],

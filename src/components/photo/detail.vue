@@ -54,10 +54,6 @@ export default {
 </script>
 
 <style scoped>
-
-
-
-
 .photo-title span {
   margin-right: 20px;
 }
