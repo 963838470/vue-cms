@@ -1,102 +1,90 @@
 <template>
-    <div>
-        <nav-bar title="商品列表"></nav-bar>
-        <ul>
-            <li v-for="(good,index) in goods" :key="index">
-                <div>
-                    <img :src="good.src">
-                    <span>{{ good.title }}</span>
-                    <div>
-                        <span>￥{{ good.price }}</span>
-                        <span>
-                            <del>￥{{ good.marketPrice }}</del>
-                        </span>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
+  <div class="tmpl">
+    <nav-bar title="商品列表"></nav-bar>
+    <mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
+      <ul>
+        <li v-for="(good,index) in goods" :key="index">
+          <div>
+            <img :src="good.src">
+            <span>{{ good.title }}</span>
+            <div>
+              <span>￥{{ good.price }}</span>
+              <span>
+                <del>￥{{ good.marketPrice }}</del>
+              </span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </mt-loadmore>
+  </div>
 </template>
 
 <script>
 export default {
   data: function() {
     return {
-      goods: [
-        {
-          title: "日落",
-          src: require("../../img/1.jpg"),
-          price: 2100,
-          marketPrice: 3000
-        },
-        {
-          title: "海豹",
-          src: require("../../img/2.jpg"),
-          price: 18888,
-          marketPrice: 20000
-        },
-        {
-          title: "蜗牛",
-          src: require("../../img/3.jpg"),
-          price: 18,
-          marketPrice: 36
-        },
-        {
-          title: "日落",
-          src: require("../../img/1.jpg"),
-          price: 2100,
-          marketPrice: 3000
-        },
-        {
-          title: "海豹",
-          src: require("../../img/2.jpg"),
-          price: 18888,
-          marketPrice: 20000
-        },
-        {
-          title: "蜗牛",
-          src: require("../../img/3.jpg"),
-          price: 18,
-          marketPrice: 36
-        },
-        {
-          title: "日落",
-          src: require("../../img/1.jpg"),
-          price: 2100,
-          marketPrice: 3000
-        },
-        {
-          title: "海豹",
-          src: require("../../img/2.jpg"),
-          price: 18888,
-          marketPrice: 20000
-        },
-        {
-          title: "蜗牛",
-          src: require("../../img/3.jpg"),
-          price: 18,
-          marketPrice: 36
-        },
-        {
-          title: "日落",
-          src: require("../../img/1.jpg"),
-          price: 2100,
-          marketPrice: 3000
-        },
-        {
-          title: "海豹",
-          src: require("../../img/2.jpg"),
-          price: 18888,
-          marketPrice: 20000
-        },
-        {
-          title: "蜗牛",
-          src: require("../../img/3.jpg"),
-          price: 18,
-          marketPrice: 36
-        }
-      ]
+      goods: [],
+      allLoaded: false
     };
+  },
+  methods: {
+    loadBottom: function() {
+      console.log("出发loadmore函数");
+      this.goods = this.goods.concat(
+        {
+          title: "日落",
+          src: require("../../img/1.jpg"),
+          price: 2100,
+          marketPrice: 3000
+        },
+        {
+          title: "海豹",
+          src: require("../../img/2.jpg"),
+          price: 18888,
+          marketPrice: 20000
+        },
+        {
+          title: "蜗牛",
+          src: require("../../img/3.jpg"),
+          price: 18,
+          marketPrice: 36
+        },
+        {
+          title: "日落",
+          src: require("../../img/1.jpg"),
+          price: 2100,
+          marketPrice: 3000
+        },
+        {
+          title: "海豹",
+          src: require("../../img/2.jpg"),
+          price: 18888,
+          marketPrice: 20000
+        },
+        {
+          title: "蜗牛",
+          src: require("../../img/3.jpg"),
+          price: 18,
+          marketPrice: 36
+        },
+        {
+          title: "日落",
+          src: require("../../img/1.jpg"),
+          price: 2100,
+          marketPrice: 3000
+        },
+        {
+          title: "海豹",
+          src: require("../../img/2.jpg"),
+          price: 18888,
+          marketPrice: 20000
+        }
+      );
+    }
+  },
+  created() {
+    this.loadBottom();
   }
 };
 </script>
