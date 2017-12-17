@@ -9,7 +9,7 @@
         </div>
         <ul class="mui-table-view mui-grid-view mui-grid-9">
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" v-for="(img,index) in images" :key="index">
-                <img :src="img">
+                <img class="preview-img" :src="img.src" @click="$preview.open(index, images)">
             </li>
         </ul>
         <div class="photo-desc">
@@ -23,11 +23,26 @@ export default {
   data: function() {
     return {
       images: [
-        require("../../img/1.jpg"),
-        require("../../img/2.jpg"),
-        require("../../img/3.jpg"),
-        require("../../img/3.jpg"),
-        require("../../img/1.jpg")
+        {
+          src: require("../../img/1.jpg"),
+          w: 600,
+          h: 400
+        },
+        {
+          src: require("../../img/2.jpg"),
+          w: 1200,
+          h: 900
+        },
+        {
+          src: require("../../img/3.jpg"),
+          w: 600,
+          h: 400
+        },
+        {
+          src: require("../../img/2.jpg"),
+          w: 1200,
+          h: 900
+        }
       ]
     };
   },
