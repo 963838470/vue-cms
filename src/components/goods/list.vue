@@ -3,13 +3,15 @@
         <nav-bar title="商品列表"></nav-bar>
         <ul>
             <li v-for="(good,index) in goods" :key="index">
-                <img :src="good.src">
-                <span>{{ good.title }}</span>
                 <div>
-                    <span>￥{{ good.price }}</span>
-                    <span>
-                        <del>￥{{ good.marketPrice }}</del>
-                    </span>
+                    <img :src="good.src">
+                    <span>{{ good.title }}</span>
+                    <div>
+                        <span>￥{{ good.price }}</span>
+                        <span>
+                            <del>￥{{ good.marketPrice }}</del>
+                        </span>
+                    </div>
                 </div>
             </li>
         </ul>
@@ -100,10 +102,14 @@ export default {
 </script>
 
 <style scoped>
+li > div {
+  border: 1px solid black;
+}
+
 li {
   width: 50%;
   float: left;
-  border: 1px solid lightgray;
+
   margin: 10px 0;
   padding: 0 10px;
 }
@@ -111,12 +117,15 @@ li {
 img {
   width: 100%;
 }
+li > div > div {
+  background-color: lightgray;
+}
 
-li > div > span:nth-child(1) {
+li > div > div > span:nth-child(1) {
   color: red;
 }
 
-li > div > span:nth-child(2) {
+li > div > div > span:nth-child(2) {
   float: right;
 }
 </style>
