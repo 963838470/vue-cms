@@ -16,6 +16,7 @@ import Shopcart from './components/shopcart/shopcart.vue';
 import NewsList from './components/news/list.vue';
 import NewsDetail from './components/news/detail.vue';
 import NavBar from './components/common/navBar.vue';
+import Comment from './components/common/comment.vue';
 import PhotoShare from './components/photo/share.vue';
 import PhotoDetail from './components/photo/detail.vue';
 require('./static/css/global.css')
@@ -49,6 +50,8 @@ Vue.filter("filterDate", function (value) {
 })
 
 Vue.component("nav-bar", NavBar)
+Vue.component("comment", Comment)
+
 
 new Vue({
     el: "#app",
