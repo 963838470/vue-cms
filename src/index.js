@@ -1,4 +1,5 @@
 'use strict';
+'更新成功'
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Mint from 'mint-ui';
