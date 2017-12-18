@@ -1,5 +1,5 @@
 <template>
-  <div class="temp">
+  <div class="tmpl">
     <nav-bar title="图文分享"></nav-bar>
     <div class="photo-header">
       <ul>
@@ -110,19 +110,31 @@ export default {
 </script>
 
 <style scoped>
-li {
+.photo-header li {
   list-style: none;
   display: inline-block;
   margin-left: 10px;
   height: 30px;
-}
-
-img {
-  width: 90%;
+  line-height: 30px;
 }
 
 .photo-header ul {
   white-space: nowrap;
   overflow: auto;
+}
+
+img {
+  width: 100%;
+}
+
+p {
+  padding-left: 5px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid lightgray;
+}
+
+p span:nth-child(1) {
+  font-size: 16px;
+  color: black;
 }
 </style>

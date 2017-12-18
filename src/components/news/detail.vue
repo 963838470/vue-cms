@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style>
-.news-content img {
+.news-content > img {
   width: 100%;
 }
 </style>
