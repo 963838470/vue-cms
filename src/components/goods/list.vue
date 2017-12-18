@@ -5,8 +5,8 @@
       <mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
         <ul>
           <li v-for="(good,index) in goods" :key="index">
-            <div>
-              <img :src="good.src">
+            <router-link :to="{name:'goods.detail',query:{id:'1'}}">
+              <img :src="good.src" />
               <span>{{ good.title }}</span>
               <div>
                 <span>￥{{ good.price }}</span>
@@ -14,7 +14,7 @@
                   <del>￥{{ good.marketPrice }}</del>
                 </span>
               </div>
-            </div>
+            </router-link>
           </li>
         </ul>
       </mt-loadmore>
