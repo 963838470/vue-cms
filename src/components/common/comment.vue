@@ -1,15 +1,14 @@
 <template>
   <div class="tmpl">
     <div class="photo-bottom">
-      <ul>
-        <li class="photo-comment">
+      <ul class="comments-header">
+        <li>
           <div>
             <span @click="loadByPage">提交评论</span>
             <span>
               <a @click="$router.go(-1)">返回</a>
             </span>
           </div>
-
         </li>
         <li class="txt-comment">
           <textarea v-model="content"></textarea>
@@ -28,8 +27,10 @@
       </ul>
       <ul class="comment-list">
         <li v-for="(comment,index) in comments" :key="index">{{ comment.username }}:{{ comment.content }} {{ comment.addTime | filterDate }}</li>
+        <li>
+          <mt-button @click="loadByPage" size="large" type="danger">加载更多按钮</mt-button>
+        </li>
       </ul>
-      <mt-button @click="loadByPage" size="large" type="danger">加载更多按钮</mt-button>
     </div>
   </div>
 </template>
@@ -81,19 +82,17 @@ export default {
 </script>
 
 <style scoped>
-ul {
-  margin: 0;
-  padding: 0;
+.comments-header li {
+  margin: 5px;
 }
 
-li {
-  list-style: none;
-  margin: 5px 0;
+textarea {
+  margin-bottom: 0;
+  padding: 5px;
 }
 
 .comment-list li {
   border-bottom: 1px solid lightgray;
-
   padding: 5px;
 }
 
@@ -101,16 +100,14 @@ li {
   height: 25px;
 }
 
-.photo-comments > div span:nth-child(1) {
+div span:nth-child(1) {
   float: left;
   font-weight: bold;
-  margin-left: 5px;
   height: 25px;
 }
 
-.photo-comments > div span:nth-child(2) {
+div span:nth-child(2) {
   float: right;
   font-weight: bold;
-  margin-left: 5px;
 }
 </style>

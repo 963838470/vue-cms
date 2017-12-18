@@ -2,13 +2,13 @@
   <div class="tmpl">
     <nav-bar title="图文详情"></nav-bar>
     <div class="photo-title">
-      <p>动植物濒临灭绝</p>
+      <h2>动植物濒临灭绝</h2>
       <span>发起日期:2017-12-17</span>
       <span>123次浏览</span>
       <span>分类:民生经济</span>
     </div>
     <ul class="mui-table-view mui-grid-view mui-grid-9">
-      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" v-for="(img,index) in images" :key="index">
+      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4" v-for="(img,index) in images" :key="index">
         <img class="preview-img" :src="img.src" @click="$preview.open(index, images)">
       </li>
     </ul>
@@ -54,6 +54,11 @@ export default {
 </script>
 
 <style scoped>
+h2 {
+  color: dodgerblue;
+  margin-left: 5px;
+}
+
 .photo-title span {
   margin-right: 20px;
 }
