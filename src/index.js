@@ -42,57 +42,17 @@ Axios.interceptors.response.use(function (config) {
 })
 
 let router = new VueRouter({
-    routes: [{
-            path: '/',
-            redirect: {
-                name: 'home'
-            }
-        },
-        {
-            name: 'home',
-            path: '/home',
-            component: Home
-        },
-        {
-            name: 'member',
-            path: '/member',
-            component: Member
-        },
-        {
-            name: 'search',
-            path: '/search',
-            component: Search
-        },
-        {
-            name: 'shopcart',
-            path: '/shopcart',
-            component: Shopcart
-        },
-        {
-            name: 'news.list',
-            path: '/news/list',
-            component: NewsList
-        },
-        {
-            name: 'news.detail',
-            path: '/news/detail/:id',
-            component: NewsDetail
-        },
-        {
-            name: 'photo.share',
-            path: '/photo/share',
-            component: PhotoShare
-        },
-        {
-            name: 'photo.detail',
-            path: '/photo/detail/:id',
-            component: PhotoDetail
-        },
-        {
-            name: 'goods.list',
-            path: '/photo/goods/list',
-            component: GoodsList
-        },
+    routes: [
+        { path: '/', redirect: { name: 'home' } },
+        { name: 'home', path: '/home', component: Home },
+        { name: 'member', path: '/member', component: Member },
+        { name: 'search', path: '/search', component: Search },
+        { name: 'shopcart', path: '/shopcart', component: Shopcart },
+        { name: 'news.list', path: '/news/list', component: NewsList },
+        { name: 'news.detail', path: '/news/detail/:id', component: NewsDetail },
+        { name: 'photo.share', path: '/photo/share', component: PhotoShare },
+        { name: 'photo.detail', path: '/photo/detail/:id', component: PhotoDetail },
+        { name: 'goods.list', path: '/photo/goods/list', component: GoodsList },
     ],
     linkActiveClass: "mui-active"
 })
