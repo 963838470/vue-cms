@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tmpl">
     <nav-bar title="商品详情"></nav-bar>
     <mt-swipe :auto="4000" class="border">
       <mt-swipe-item v-for="(s,index) in swipe" :key="index">
@@ -20,8 +20,8 @@
       <div>
         <span>购买数量</span>
       </div>
-      <mt-button>立即购买</mt-button>
-      <mt-button>加入购物车</mt-button>
+      <mt-button type="primary">立即购买</mt-button>
+      <mt-button type="danger">加入购物车</mt-button>
     </div>
     <div class="border">
       <div>
@@ -36,6 +36,10 @@
       <div>
         上架时间:2017-01-12
       </div>
+    </div>
+    <div class="border btn">
+      <mt-button type="primary" size="large" plain>图文介绍</mt-button>
+      <mt-button type="danger" size="large" plain>商品评论</mt-button>
     </div>
   </div>
 </template>
@@ -93,5 +97,9 @@ h3 {
   font-size: 20px;
   color: red;
   margin-right: 5px;
+}
+
+.btn button {
+  margin-bottom: 5px;
 }
 </style>
