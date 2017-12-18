@@ -1,6 +1,7 @@
 <template>
   <div class="tmpl">
-    <nav-bar title="商品列表"></nav-bar>
+    <load></load>
+    <!-- <nav-bar title="商品列表"></nav-bar>
     <mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
       <ul>
         <li v-for="(good,index) in goods" :key="index">
@@ -16,11 +17,12 @@
           </div>
         </li>
       </ul>
-    </mt-loadmore>
+    </mt-loadmore> -->
   </div>
 </template>
 
 <script>
+import Load from './loadmore.vue'
 export default {
   data: function() {
     return {
@@ -30,7 +32,7 @@ export default {
   },
   methods: {
     loadBottom: function() {
-      console.log("出发loadmore函数");
+      console.log("触发loadmore函数");
       this.goods = this.goods.concat(
         {
           title: "日落",
@@ -81,10 +83,15 @@ export default {
           marketPrice: 20000
         }
       );
+      //this.allLoaded = false;
+      //this.$refs.loadmore.onBottomLoaded();
     }
   },
   created() {
     this.loadBottom();
+  },
+  components: {
+    Load
   }
 };
 </script>
