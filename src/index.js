@@ -1,5 +1,4 @@
 'use strict';
-'测试腥增'
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Mint from 'mint-ui';
