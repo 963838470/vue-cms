@@ -5,16 +5,18 @@
       <mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
         <ul>
           <li v-for="(good,index) in goods" :key="index">
-            <router-link :to="{name:'goods.detail',query:{id:'1'}}">
-              <img :src="good.src" />
-              <span>{{ good.title }}</span>
-              <div>
-                <span>￥{{ good.price }}</span>
-                <span>
-                  <del>￥{{ good.marketPrice }}</del>
-                </span>
-              </div>
-            </router-link>
+            <div>
+              <router-link :to="{name:'goods.detail',query:{id:'1'}}">
+                <img :src="good.src" />
+                <span>{{ good.title }}</span>
+                <div class="descript">
+                  <span>￥{{ good.price }}</span>
+                  <span>
+                    <del>￥{{ good.marketPrice }}</del>
+                  </span>
+                </div>
+              </router-link>
+            </div>
           </li>
         </ul>
       </mt-loadmore>
@@ -27,7 +29,8 @@ export default {
   data: function() {
     return {
       goods: [],
-      allLoaded: false
+      allLoaded: false,
+      timeStop: 0
     };
   },
   methods: {
@@ -86,7 +89,8 @@ export default {
         );
         //this.allLoaded = false;
         this.$refs.loadmore.onBottomLoaded();
-      }, 1500);
+      }, this.timeStop);
+      this.timeStop = 1500;
     }
   },
   created() {
@@ -96,31 +100,33 @@ export default {
 </script>
 
 <style scoped>
-li > div {
-  border: 1px solid black;
+ul {
+  height: 500px;
 }
 
 li {
   width: 50%;
   float: left;
+}
 
-  margin: 10px 0;
-  padding: 0 10px;
+li > div {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
 }
 
 img {
   width: 100%;
 }
-li > div > div {
-  background-color: lightgray;
-}
 
-li > div > div > span:nth-child(1) {
+.descript > span:nth-child(1) {
   color: red;
 }
 
-li > div > div > span:nth-child(2) {
+.descript > span:nth-child(2) {
   float: right;
+  background-color: lightgray;
 }
 
 .page-loadmore-wrapper {
