@@ -19,6 +19,9 @@
       </div>
       <div>
         <span>购买数量</span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
       <mt-button type="primary">立即购买</mt-button>
       <mt-button type="danger">加入购物车</mt-button>
