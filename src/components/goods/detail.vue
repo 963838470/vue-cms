@@ -30,6 +30,9 @@
         <mt-button type="danger" @click="addShopcart">加入购物车</mt-button>
       </div>
     </div>
+    <transition name="ball" @after-enter="isShowBall=false">
+      <div class="ball" v-if="isShowBall"></div>
+    </transition>
     <div class="border">
       <div>
         商品参数
@@ -70,7 +73,8 @@ export default {
           url: "https://pixabay.com/zh"
         }
       ],
-      num: 1
+      num: 1,
+      isShowBall: false
     };
   },
   methods: {
@@ -83,8 +87,15 @@ export default {
       this.num++;
     },
     addShopcart: function() {
+      this.isShowBall = true;
       console.log("开始emit");
       connect.$emit("addShopcart", this.num);
+      // setTimeout(() => {
+      //   this.isShowBall = false;
+      // }, 0);
+    },
+    afteEnter() {
+      this.isShowBall = false;
     }
   },
   created() {
@@ -142,5 +153,32 @@ h3 {
   height: 24px;
   font-size: 20px;
   text-align: center;
+}
+
+.ball {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  position: absolute;
+  background-color: red;
+}
+
+.ball-enter-active {
+  animation: bounce-in 0.5s;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(140px, -50px, 0);
+  }
+  75% {
+    transform: translate3d(160px, 0, 0);
+  }
+  100% {
+    transform: translate3d(140px, 300px, 0);
+  }
 }
 </style>
