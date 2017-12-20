@@ -22,3 +22,7 @@ ul {
 .fr {
     float:right;
 }
+
+/*清除浮动、应用于包含浮动子元素的父级元素上*/
+.clearfix:after { content: ''; display: table; clear: both; }
+.clearfix { *zoom: 1; }

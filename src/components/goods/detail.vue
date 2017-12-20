@@ -17,14 +17,18 @@
         <span>销售价:</span>
         <span class="red">￥2195</span>
       </div>
-      <div>
-        <span>购买数量</span>
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="clearfix">
+        <span class="fl">购买数量：</span>
+        <div class="numedit">
+          <span @click="subNum">-</span>
+          <span>{{ num }}</span>
+          <span @click="addNum">+</span>
+        </div>
       </div>
-      <mt-button type="primary">立即购买</mt-button>
-      <mt-button type="danger">加入购物车</mt-button>
+      <div>
+        <mt-button type="primary">立即购买</mt-button>
+        <mt-button type="danger" @click="addShopcart">加入购物车</mt-button>
+      </div>
     </div>
     <div class="border">
       <div>
@@ -48,6 +52,7 @@
 </template>
 
 <script>
+import connect from "../common/connect.js";
 export default {
   data: function() {
     return {
@@ -64,8 +69,23 @@ export default {
           src: require("../../img/3.jpg"),
           url: "https://pixabay.com/zh"
         }
-      ]
+      ],
+      num: 1
     };
+  },
+  methods: {
+    subNum() {
+      if (this.num > 0) {
+        this.num--;
+      }
+    },
+    addNum() {
+      this.num++;
+    },
+    addShopcart: function() {
+      console.log("开始emit");
+      connect.$emit("addShopcart", this.num);
+    }
   },
   created() {
     console.log("查询参数:" + this.$route.query.id);
@@ -104,5 +124,23 @@ h3 {
 
 .btn button {
   margin-bottom: 5px;
+}
+
+.clearfix {
+  margin: 10px;
+}
+
+.numedit {
+  float: left;
+  font-size: 0;
+}
+
+.numedit span {
+  border: 1px solid lightgray;
+  display: inline-block;
+  width: 30px;
+  height: 24px;
+  font-size: 20px;
+  text-align: center;
 }
 </style>

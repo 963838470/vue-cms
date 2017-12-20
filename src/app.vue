@@ -9,12 +9,13 @@
 			</router-link>
 			<router-link class="mui-tab-item" :to="{name:'member'}">
 				<span class="mui-icon icon-vip">
-					<span class="mui-badge">9</span>
 				</span>
 				<span class="mui-tab-label">会员</span>
 			</router-link>
 			<router-link class="mui-tab-item" :to="{name:'shopcart'}">
-				<span class="mui-icon icon-car"></span>
+				<span class="mui-icon icon-car">
+					<span class="mui-badge">{{ pickNum }}</span>
+				</span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
 			<router-link class="mui-tab-item" :to="{name:'search'}">
@@ -26,14 +27,22 @@
 </template>
 
 <script>
+import connect from "./components/common/connect.js";
+
 export default {
   data() {
-    return {};
+    return {
+      pickNum: 0
+    };
   },
   created() {
     // this.$ajax.get("https://www.baidu.com").then(res => {
     //   console.log(res);
     // });
+    connect.$on("addShopcart", num => {
+      console.log("触发emit");
+      this.pickNum = this.pickNum + num;
+    });
   }
 };
 </script>
