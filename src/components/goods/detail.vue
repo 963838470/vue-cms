@@ -48,8 +48,8 @@
       </div>
     </div>
     <div class="border btn">
-      <mt-button type="primary" size="large" plain>图文介绍</mt-button>
-      <mt-button type="danger" size="large" plain @click="comment">商品评论</mt-button>
+      <mt-button type="primary" size="large" plain @click="showDetail">图文介绍</mt-button>
+      <mt-button type="danger" size="large" plain @click="showComment">商品评论</mt-button>
     </div>
   </div>
 </template>
@@ -98,10 +98,16 @@ export default {
       prodTools.addOrUpdate({ id: this.$route.query.id, num: this.num });
       console.log(prodTools.getProds());
     },
-    comment() {
+    showComment() {
       this.$router.push({
         name: "goods.comment",
         query: { cid: this.$route.query.id }
+      });
+    },
+    showDetail() {
+      this.$router.push({
+        name: "news.detail",
+        params: { id: this.$route.query.id }
       });
     }
   }

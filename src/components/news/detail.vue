@@ -1,6 +1,6 @@
 <template>
   <div class="tmpl">
-    <nav-bar title="新闻详情"></nav-bar>
+    <nav-bar :title="title"></nav-bar>
     <div class="news-title">
       <p>{{ detail.title }}</p>
       <div>
@@ -38,11 +38,20 @@ export default {
         <p>虽然只是那么小小的0.01或者0.02的差距，在数学的世界里差别很大！</p>
         <p>1.02的365次方=1377.4，远远大于1.01的365次方。如果取得成绩后沾沾自喜，得意忘形，不再保持上进，那么比咱更努力一点的人，一年后就要甩出我们几条街了。数学+编辑不由说“坚持才是王道，比冲劲，咱还得有韧劲儿”。</p>
         `
-      }
+      },
+      title: "新闻详情"
     };
   },
   created() {
     this.detail.click = this.$route.params.id;
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log(from.name);
+    if (from.name == "goods.detail") {
+    }
+    next(vm => {
+      vm.title = "图文详情";
+    });
   }
 };
 </script>
