@@ -56,6 +56,8 @@
 
 <script>
 import connect from "../common/connect.js";
+import prodTools from "../common/prodTools.js";
+
 export default {
   data: function() {
     return {
@@ -93,6 +95,8 @@ export default {
       this.isShowBall = false;
       console.log("开始emit");
       connect.$emit("addShopcart", this.num);
+      prodTools.addOrUpdate({ id: this.$route.query.id, num: this.num });
+      console.log(prodTools.getProds());
     }
   },
   created() {

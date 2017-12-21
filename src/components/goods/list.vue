@@ -6,7 +6,7 @@
         <ul>
           <li v-for="(good,index) in goods" :key="index">
             <div>
-              <router-link :to="{name:'goods.detail',query:{id:'1'}}">
+              <router-link :to="{ name:'goods.detail',query:{ id:good.id }}">
                 <img :src="good.src" />
                 <span>{{ good.title }}</span>
                 <div class="descript">
@@ -39,24 +39,28 @@ export default {
         console.log("触发loadmore函数");
         this.goods = this.goods.concat(
           {
+            id: 1,
             title: "日落",
             src: require("../../img/1.jpg"),
             price: 2100,
             marketPrice: 3000
           },
           {
+            id: 2,
             title: "海豹",
             src: require("../../img/2.jpg"),
             price: 18888,
             marketPrice: 20000
           },
           {
+            id: 3,
             title: "蜗牛",
             src: require("../../img/3.jpg"),
             price: 18,
             marketPrice: 36
           },
           {
+            id: 4,
             title: "日落",
             src: require("../../img/1.jpg"),
             price: 2100,
