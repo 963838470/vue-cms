@@ -49,7 +49,7 @@
     </div>
     <div class="border btn">
       <mt-button type="primary" size="large" plain>图文介绍</mt-button>
-      <mt-button type="danger" size="large" plain>商品评论</mt-button>
+      <mt-button type="danger" size="large" plain @click="comment">商品评论</mt-button>
     </div>
   </div>
 </template>
@@ -97,10 +97,13 @@ export default {
       connect.$emit("addShopcart", this.num);
       prodTools.addOrUpdate({ id: this.$route.query.id, num: this.num });
       console.log(prodTools.getProds());
+    },
+    comment() {
+      this.$router.push({
+        name: "goods.comment",
+        query: { cid: this.$route.query.id }
+      });
     }
-  },
-  created() {
-    console.log("查询参数:" + this.$route.query.id);
   }
 };
 </script>

@@ -67,24 +67,28 @@ export default {
             marketPrice: 3000
           },
           {
+            id: 5,
             title: "海豹",
             src: require("../../img/2.jpg"),
             price: 18888,
             marketPrice: 20000
           },
           {
+            id: 6,
             title: "蜗牛",
             src: require("../../img/3.jpg"),
             price: 18,
             marketPrice: 36
           },
           {
+            id: 7,
             title: "日落",
             src: require("../../img/1.jpg"),
             price: 2100,
             marketPrice: 3000
           },
           {
+            id: 8,
             title: "海豹",
             src: require("../../img/2.jpg"),
             price: 18888,

@@ -14,7 +14,7 @@
           <textarea v-model="content"></textarea>
         </li>
         <li>
-          <mt-button @click="sendContent" size="large" type="primary">发表评论按钮</mt-button>
+          <mt-button @click="sendContent" size="large" type="primary">发表评论</mt-button>
         </li>
         <li>
           <div class="photo-comments">
@@ -28,7 +28,7 @@
       <ul class="comment-list">
         <li v-for="(comment,index) in comments" :key="index">{{ comment.username }}:{{ comment.content }} {{ comment.addTime | filterDate }}</li>
         <li>
-          <mt-button @click="loadByPage" size="large" type="danger">加载更多按钮</mt-button>
+          <mt-button @click="loadByPage" size="large" type="danger">加载更多</mt-button>
         </li>
       </ul>
     </div>

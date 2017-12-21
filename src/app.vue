@@ -28,11 +28,12 @@
 
 <script>
 import connect from "./components/common/connect.js";
+import prodTools from "./components/common/prodTools.js";
 
 export default {
   data() {
     return {
-      pickNum: 0
+      pickNum: prodTools.getTotalCount()
     };
   },
   created() {

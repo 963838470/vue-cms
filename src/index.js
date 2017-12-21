@@ -21,6 +21,7 @@ import PhotoShare from './components/photo/share.vue';
 import PhotoDetail from './components/photo/detail.vue';
 import GoodsList from './components/goods/list.vue';
 import GoodsDetail from './components/goods/detail.vue';
+import GoodsComment from './components/goods/comment.vue';
 require('./static/css/global.css')
 
 Vue.use(VueRouter);
@@ -55,6 +56,8 @@ let router = new VueRouter({
         { name: 'photo.detail', path: '/photo/detail/:id', component: PhotoDetail },
         { name: 'goods.list', path: '/photo/goods/list', component: GoodsList },
         { name: 'goods.detail', path: '/photo/goods/detail', component: GoodsDetail },
+        { name: 'goods.comment', path: '/photo/goods/comment', component: GoodsComment },
+        
     ],
     linkActiveClass: "mui-active"
 })
