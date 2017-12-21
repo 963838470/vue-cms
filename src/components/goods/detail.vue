@@ -30,7 +30,7 @@
         <mt-button type="danger" @click="addShopcart">加入购物车</mt-button>
       </div>
     </div>
-    <transition name="ball" @after-enter="isShowBall=false">
+    <transition name="ball" @after-enter="afteEnter">
       <div class="ball" v-if="isShowBall"></div>
     </transition>
     <div class="border">
@@ -88,14 +88,11 @@ export default {
     },
     addShopcart: function() {
       this.isShowBall = true;
-      console.log("开始emit");
-      connect.$emit("addShopcart", this.num);
-      // setTimeout(() => {
-      //   this.isShowBall = false;
-      // }, 0);
     },
     afteEnter() {
       this.isShowBall = false;
+      console.log("开始emit");
+      connect.$emit("addShopcart", this.num);
     }
   },
   created() {
@@ -161,6 +158,8 @@ h3 {
   border-radius: 10px;
   position: absolute;
   background-color: red;
+  margin-left: 42%;
+  margin-top: -11%;
 }
 
 .ball-enter-active {
@@ -178,7 +177,7 @@ h3 {
     transform: translate3d(160px, 0, 0);
   }
   100% {
-    transform: translate3d(140px, 300px, 0);
+    transform: translate3d(60px, 300px, 0);
   }
 }
 </style>
