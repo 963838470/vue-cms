@@ -57,9 +57,16 @@ let router = new VueRouter({
         { name: 'goods.list', path: '/photo/goods/list', component: GoodsList },
         { name: 'goods.detail', path: '/photo/goods/detail', component: GoodsDetail },
         { name: 'goods.comment', path: '/photo/goods/comment', component: GoodsComment },
-        
+
     ],
-    linkActiveClass: "mui-active"
+    linkActiveClass: "mui-active",
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition
+        } else {
+            return { x: 0, y: 0 }
+        }
+    }
 })
 
 Vue.filter("filterDate", function (value) {
