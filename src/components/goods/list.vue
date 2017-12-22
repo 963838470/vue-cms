@@ -109,7 +109,7 @@ export default {
 
 <style scoped>
 ul {
-  height:500px;
+  height: 500px;
 }
 
 li {
