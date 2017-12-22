@@ -94,9 +94,8 @@ export default {
     afteEnter() {
       this.isShowBall = false;
       console.log("开始emit");
-      connect.$emit("addShopcart", this.num);
-      prodTools.addOrUpdate({ id: this.$route.query.id, num: this.num });
-      console.log(prodTools.getProds());
+      connect.$emit("addShopcart", { id: this.$route.query.id, num: this.num });
+      
     },
     showComment() {
       this.$router.push({

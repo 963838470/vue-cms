@@ -40,9 +40,11 @@ export default {
     // this.$ajax.get("https://www.baidu.com").then(res => {
     //   console.log(res);
     // });
-    connect.$on("addShopcart", num => {
+    connect.$on("addShopcart", data => {
       console.log("触发emit");
-      this.pickNum = this.pickNum + num;
+      this.pickNum = this.pickNum + data.num;
+      prodTools.addOrUpdate({ id: data.id, num: data.num });
+      console.log(prodTools.getProds());
     });
   }
 };

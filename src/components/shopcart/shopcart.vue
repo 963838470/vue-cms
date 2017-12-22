@@ -22,7 +22,9 @@
 </template>
 
 <script>
+import connect from "../../components/common/connect.js";
 import ProdTool from "../../components/common/prodTools.js";
+
 export default {
   data: function() {
     return {
@@ -43,10 +45,14 @@ export default {
   },
   methods: {
     numSub(good) {
-      good.num--;
+      if (good.num > 0) {
+        good.num--;
+        connect.$emit("addShopcart", { id: good.id, num: -1 });
+      }
     },
     numAdd(good) {
       good.num++;
+      connect.$emit("addShopcart", { id: good.id, num: 1 });
     },
     delItem(good) {
       //delete good;
