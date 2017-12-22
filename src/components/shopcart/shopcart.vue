@@ -2,7 +2,7 @@
     <div class="tmpl">
         <nav-bar title="购物车"></nav-bar>
         <ul class="pay-detail">
-            <li v-for="(good,index) in goodsList" :key="index">
+            <li v-for="(good,index) in goodsList" :key="index" v-show="good.num>0">
                 <mt-switch v-model="good.isPicked"></mt-switch>
                 <img :src="good.src">
                 <div class="clearfix"></div>
@@ -18,6 +18,11 @@
                 </div>
             </li>
         </ul>
+        <div>
+            <p>总计(不含运费)</p>
+            <span>已经选择商品{{ payment.num }}件,总价￥{{ payment.sum }}元</span>
+            <mt-button>去结算</mt-button>
+        </div>
     </div>
 </template>
 
@@ -45,7 +50,7 @@ export default {
   },
   methods: {
     numSub(good) {
-      if (good.num > 0) {
+      if (good.num > 1) {
         good.num--;
         connect.$emit("addShopcart", { id: good.id, num: -1 });
       }
@@ -55,7 +60,21 @@ export default {
       connect.$emit("addShopcart", { id: good.id, num: 1 });
     },
     delItem(good) {
+      ProdTool.delete(good.id);
       //delete good;
+    }
+  },
+  computed: {
+    payment() {
+      let num = 0;
+      let sum = 0;
+      this.goodsList.forEach(function(ele, index) {
+        if (ele.isPicked) {
+          num += ele.num;
+          sum += ele.num * ele.price;
+        }
+      });
+      return { num, sum };
     }
   }
 };

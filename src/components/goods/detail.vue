@@ -81,7 +81,7 @@ export default {
   },
   methods: {
     subNum() {
-      if (this.num > 0) {
+      if (this.num > 1) {
         this.num--;
       }
     },
@@ -95,7 +95,6 @@ export default {
       this.isShowBall = false;
       console.log("开始emit");
       connect.$emit("addShopcart", { id: this.$route.query.id, num: this.num });
-      
     },
     showComment() {
       this.$router.push({

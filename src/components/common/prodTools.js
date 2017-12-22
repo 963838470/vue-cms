@@ -11,7 +11,7 @@ ProdTools.addOrUpdate = function (p) {
     this.save(prods);
 }
 
-ProdTools.delete = function (p) {
+ProdTools.delete = function (id) {
     delete prods[id];
     this.save(prods);
 }
