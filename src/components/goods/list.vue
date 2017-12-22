@@ -108,6 +108,10 @@ export default {
 </script>
 
 <style scoped>
+ul {
+  height:500px;
+}
+
 li {
   width: 50%;
   float: left;
