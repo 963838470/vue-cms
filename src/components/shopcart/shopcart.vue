@@ -1,29 +1,29 @@
 <template>
-    <div class="tmpl">
-        <nav-bar title="购物车"></nav-bar>
-        <ul class="pay-detail">
-            <li v-for="(good,index) in goodsList" :key="index" v-show="good.num>0">
-                <mt-switch v-model="good.isPicked"></mt-switch>
-                <img :src="good.src">
-                <div class="clearfix"></div>
-                <div class="pay-calc">
-                    <h3>{{ good.title }}</h3>
-                    <div class="calc">
-                        <span>￥{{ good.price }}</span>
-                        <span @click="numSub(good)">-</span>
-                        <span>{{ good.num }}</span>
-                        <span @click="numAdd(good)">+</span>
-                        <a href="javascript:;" @click="delItem(good)">删除</a>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <div>
-            <p>总计(不含运费)</p>
-            <span>已经选择商品{{ payment.num }}件,总价￥{{ payment.sum }}元</span>
-            <mt-button>去结算</mt-button>
+  <div class="tmpl">
+    <nav-bar title="购物车"></nav-bar>
+    <ul class="pay-detail">
+      <li v-for="(good,index) in goodsList" :key="index" v-show="good.num>0">
+        <mt-switch v-model="good.isPicked"></mt-switch>
+        <img :src="good.src">
+        <div class="clearfix"></div>
+        <div class="pay-calc">
+          <h3>{{ good.title }}</h3>
+          <div class="calc">
+            <span>￥{{ good.price }}</span>
+            <span @click="numSub(good)">-</span>
+            <span>{{ good.num }}</span>
+            <span @click="numAdd(good)">+</span>
+            <a href="javascript:;" @click="delItem(good)">删除</a>
+          </div>
         </div>
+      </li>
+    </ul>
+    <div>
+      <p>总计(不含运费)</p>
+      <span>已经选择商品{{ payment.num }}件,总价￥{{ payment.sum }}元</span>
+      <mt-button>去结算</mt-button>
     </div>
+  </div>
 </template>
 
 <script>
@@ -70,8 +70,8 @@ export default {
       let sum = 0;
       this.goodsList.forEach(function(ele, index) {
         if (ele.isPicked) {
-          num += ele.num;
-          sum += ele.num * ele.price;
+          num += ele.num | 0;
+          sum += (ele.num | 0) * ele.price;
         }
       });
       return { num, sum };
