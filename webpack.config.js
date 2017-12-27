@@ -1,6 +1,7 @@
 'use strict';
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     entry: {
@@ -12,7 +13,14 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.css$/, loader: 'style-loader!css-loader!autoprefixer-loader' },
+            // { test: /\.css$/, loader: 'style-loader!css-loader!autoprefixer-loader' },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: "css-loader!autoprefixer-loader"
+                })
+            },
             { test: /\.less$/, loader: 'style-loader!css-loader!autoprefixer-loader!less-loader' },
             { test: /\.(jpg|png|svg|gif|ttf|woff|woff2)/, loader: 'url-loader', options: { limit: 4096, name: '[hash:8].[name].[ext]' } },
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
@@ -22,6 +30,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new htmlWebpackPlugin({ template: './src/index.html' })
+        new htmlWebpackPlugin({ template: './src/index.html' }),
+        new ExtractTextPlugin("styles.css"),
     ]
 }
