@@ -2,14 +2,16 @@
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require("webpack")
 
 module.exports = {
     entry: {
-        main: "./src/index.js"
+        main: "./src/index.js",
+        vendors: ["vue", "vue-router", "moment", "axios", 'vue-preview']
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'build.js'
+        filename: '[chunkhash:6].[name].js'
     },
     module: {
         loaders: [
@@ -22,7 +24,7 @@ module.exports = {
                 })
             },
             { test: /\.less$/, loader: 'style-loader!css-loader!autoprefixer-loader!less-loader' },
-            { test: /\.(jpg|png|svg|gif|ttf|woff|woff2)/, loader: 'url-loader', options: { limit: 4096, name: '[hash:8].[name].[ext]' } },
+            { test: /\.(jpg|png|svg|gif|ttf|woff|woff2)/, loader: 'url-loader', options: { limit: 4096, name: '[hash:6].[name].[ext]' } },
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
             { test: /vue-preview.src.*?js$/, loader: 'babel-loader' },
             { test: /\.vue$/, loader: 'vue-loader' },
@@ -31,6 +33,7 @@ module.exports = {
     },
     plugins: [
         new htmlWebpackPlugin({ template: './src/index.html' }),
-        new ExtractTextPlugin("styles.css"),
+        new ExtractTextPlugin("[contenthash:6].css"),
+        new webpack.optimize.CommonsChunkPlugin({ name: "vendors", minChunks: Infinity })
     ]
 }
