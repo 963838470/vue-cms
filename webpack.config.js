@@ -12,7 +12,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        // publicPath: './dist/',
+        publicPath: '/',
         filename: 'js/[chunkhash:6].[name].js'
     },
     module: {
@@ -34,7 +34,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new htmlWebpackPlugin({ template: './src/index.html' }),
+        new htmlWebpackPlugin({ template: 'src/index.html' }),
         new ExtractTextPlugin("css/[contenthash:6].css"),
         new webpack.optimize.CommonsChunkPlugin({ name: "vendors", minChunks: Infinity }),
         new UglifyJsPlugin(),

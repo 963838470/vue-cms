@@ -10,8 +10,8 @@ import VuePreview from 'vue-preview'
 
 import App from './app.vue';
 import Home from './components/home/home.vue';
-const Member = resolve => require(["./components/member/member.vue"], resolve)
-// import Member from './components/member/member.vue';
+//const Member = resolve => require(["./components/member/member.vue"], resolve)
+import Member from './components/member/member.vue';
 import Search from './components/search/search.vue';
 import Shopcart from './components/shopcart/shopcart.vue';
 import NewsList from './components/news/list.vue';
@@ -23,7 +23,6 @@ import PhotoDetail from './components/photo/detail.vue';
 import GoodsList from './components/goods/list.vue';
 import GoodsDetail from './components/goods/detail.vue';
 import GoodsComment from './components/goods/comment.vue';
-import { resolve } from 'dns';
 require('./static/css/global.css')
 
 Vue.use(VueRouter);
