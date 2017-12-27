@@ -37,6 +37,7 @@ module.exports = {
         new htmlWebpackPlugin({ template: './src/index.html' }),
         new ExtractTextPlugin("css/[contenthash:6].css"),
         new webpack.optimize.CommonsChunkPlugin({ name: "vendors", minChunks: Infinity }),
-        new UglifyJsPlugin()
+        new UglifyJsPlugin(),
+        new webpack.DefinePlugin({ 'process.env': { NODE_ENV: '"production"' } }), // 去除警告
     ]
 }
