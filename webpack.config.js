@@ -13,7 +13,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
-        filename: 'js/[chunkhash:6].[name].js'
+        filename: 'js/[hash:6].[name].js'
     },
     module: {
         loaders: [
